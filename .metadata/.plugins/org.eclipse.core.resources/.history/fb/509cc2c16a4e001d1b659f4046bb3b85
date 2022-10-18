@@ -1,0 +1,16 @@
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PruebaVotacion {
+
+	@Test
+	public void queExistaUnEdificio() {
+		Edificio yatay240 = new Edificio();
+		Assert.assertNotNull(yatay240);
+	}
+	
+	
+
+}

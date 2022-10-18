@@ -1,0 +1,28 @@
+package apps;
+
+public class Butaca {
+	
+	//Atributos
+	private boolean estaOcupada;
+	
+	//Constructor
+	
+	public Butaca() {
+		estaOcupada = true;
+	}
+	
+	//Métodos
+	public boolean butacaDisponible(){
+		if (estaOcupada == false) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public void ocuparButaca() {
+		this.estaOcupada = true;
+	}
+	
+
+}

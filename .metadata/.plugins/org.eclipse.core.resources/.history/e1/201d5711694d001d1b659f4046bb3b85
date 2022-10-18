@@ -1,0 +1,20 @@
+package unlamPracticaParcial;
+
+
+import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Assert.*;
+
+public class testFondeadero {
+	
+	@Test
+	public void queSePuedaCrearUnFondeadero(){
+		Fondeadero clubYacht = dadoQueExisteUnFondeadero(70);
+		Assert.assertNotNull(clubYacht);
+	}
+
+	private Fondeadero dadoQueExisteUnFondeadero(Integer cantidad) {
+		return new Fondeadero(cantidad);
+	}
+
+}

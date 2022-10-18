@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class Edificio {
+	
+	private String direccion;
+	private final Integer CANTIDAD_DEPARTAMENTOS = 10;
+	private ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+	
+	
+
+	public Edificio(String direccion) {
+	}
+
+	public Boolean agregarUnidad(Departamento unidad) {
+		for (Departamento departamento : departamentos) {
+			if(departamento.equals(unidad)){
+				return false;
+			}
+		}
+		
+		return departamentos.add(unidad);
+	}
+
+}
+
+

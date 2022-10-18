@@ -1,0 +1,12 @@
+package unlamPracticaParcial;
+
+
+import org.junit.Test;
+import org.junit.Assert.*;
+
+public class testFondeadero {
+	
+	@Test
+	public void queSePuedaCrearUnFondeadero
+
+}

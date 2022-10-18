@@ -1,0 +1,11 @@
+package unlamPracticaParcial;
+
+public class Fondeadero {
+	
+	private final Integer CANTIDAD_MAXIMA_AMARRAS;
+	
+	public Fondeadero (Integer cantMax) {
+		this.CANTIDAD_MAXIMA_AMARRAS = cantMax;
+	}
+
+}

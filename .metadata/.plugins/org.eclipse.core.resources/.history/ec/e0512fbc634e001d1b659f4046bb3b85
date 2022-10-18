@@ -1,0 +1,95 @@
+package unlamPracticaParcial;
+
+
+import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Assert.*;
+
+public class testFondeadero {
+	
+	@Test
+	public void queSePuedaCrearUnFondeadero(){
+		Fondeadero clubYacht = dadoQueExisteUnFondeadero(70);
+		Assert.assertNotNull(clubYacht);
+	}
+	
+	
+	@Test
+	public void queSePuedaCrearUnYateDeVela() {
+		Yate XXR = dadoQueExisteUnYateDeVela();
+		Assert.assertNotNull(XXR);
+	}
+
+
+	@Test
+	public void queSePuedaCrearUnYateAMotor() {
+		Yate AZ1 = dadoQueExisteUnYateAMotor();
+		Assert.assertNotNull(AZ1);
+	}
+	
+	
+	@Test
+	public void queSePuedaAmararUnYate(){
+		Fondeadero clubYacht = dadoQueExisteUnFondeadero(70);
+		Yate XXR = dadoQueExisteUnYateDeVela();
+		Assert.assertTrue(clubYacht.amarrarYate(XXR));
+		String ve = "";
+		Assert.assertEquals(ve, clubYacht.mensaje(XXR));
+	}
+	
+	@Test
+	public void queNoSePuedadAmarrarMasYates() {
+		Fondeadero clubYacht = dadoQueExisteUnFondeadero(70);
+		Yate XXR = dadoQueExisteUnYateDeVela();
+		//Solo a modo de prueba vamos a agregar el mismo yate
+		agregarYates(clubYacht, XXR, 70);
+		Boolean vo = clubYacht.amarrarYate(XXR);
+		Assert.assertEquals(false, vo);
+	}
+	
+	@Test
+	public void queSePuedaDesamarrarUnYate() {
+		//Preparación
+		Fondeadero clubYacht = dadoQueExisteUnFondeadero(70);
+		Yate XXR = dadoQueExisteUnYateDeVela();
+		Yate AZ1 = dadoQueExisteUnYateAMotor();
+		//Ejecución
+		clubYacht.amarrarYate(AZ1);
+		clubYacht.amarrarYate(XXR);
+		Boolean vo = clubYacht.desamarrarYate(AZ1);
+		//Aserción
+		Assert.assertEquals(true, vo);
+	}
+	
+	//DESAMARRAR BARCO
+	//CANTIDAD LUGARES DISPONIBLES
+	//PRECIO BARCOS MOTOR Y VELA
+	//RECAUDACION TOTAL (CALCULAR PRECIO DENTRO DE YATE PADRE)
+	
+	//METODOS EXTRAS
+
+	private Fondeadero dadoQueExisteUnFondeadero(Integer cantidad) {
+		return new Fondeadero(cantidad);
+	}
+	
+	private Yate dadoQueExisteUnYateDeVela() {
+		String nombre = "XXR";
+		String dueño = "Sebastian Pardo";
+		Double eslora = 13.45;
+		return new YateVela(nombre,dueño,eslora);
+	}
+	
+	private YateMotor dadoQueExisteUnYateAMotor() {
+		String nombre = "AZ1";
+		String dueño = "Andrés Borgeat";
+		Double eslora = 119.0;
+		return new YateMotor(nombre,dueño,eslora);
+	}
+	
+	private void agregarYates(Fondeadero club, Yate nombre, int cant) {
+		for (int i = 0; i<cant; i++) {
+			club.amarrarYate(nombre);
+		}
+	}
+
+}
